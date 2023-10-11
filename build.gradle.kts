@@ -20,8 +20,13 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.0")
     testImplementation("junit:junit:4.13.2")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.0")
-    compileOnly("org.projectlombok:lombok:1.18.28")
+    testImplementation("org.mockito:mockito-core:5.6.0")
+    testImplementation("org.mockito:mockito-junit-jupiter:5.6.0")
+    implementation("org.projectlombok:lombok:1.18.28")
     annotationProcessor("org.projectlombok:lombok:1.18.28")
+    testAnnotationProcessor("org.projectlombok:lombok:1.18.28")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.15.2")
+    implementation("org.slf4j:slf4j-api:2.0.9")
 }
 
 spotbugs {
