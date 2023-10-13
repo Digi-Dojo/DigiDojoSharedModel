@@ -35,7 +35,8 @@ spotbugs {
 }
 
 val excludeFromCoverage = listOf(
-        "it/unibz/digidojo/**/model/**",
+        "it/unibz/digidojo/**/event/**",
+        "it/unibz/digidojo/**/dto/**",
 )
 
 val codeCoverageFiles: FileTree = sourceSets.main.get().output.asFileTree.matching {
