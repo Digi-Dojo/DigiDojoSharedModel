@@ -1,4 +1,15 @@
 package it.unibz.digidojo.sharedmodel.dto;
 
-public record UserDTO(Long id, String name) {
+import java.util.Objects;
+
+public record UserDTO(
+        Long id,
+        String name,
+        String emailAddress
+) {
+    public UserDTO {
+        Objects.requireNonNull(id);
+        Objects.requireNonNull(name);
+        Objects.requireNonNull(emailAddress);
+    }
 }

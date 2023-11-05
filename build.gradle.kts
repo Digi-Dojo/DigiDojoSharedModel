@@ -27,16 +27,20 @@ dependencies {
     testAnnotationProcessor("org.projectlombok:lombok:1.18.28")
     implementation("com.fasterxml.jackson.core:jackson-databind:2.15.2")
     implementation("org.slf4j:slf4j-api:2.0.9")
+    implementation("org.hibernate.validator:hibernate-validator:8.0.0.Final")
+    compileOnly("io.soabase.record-builder:record-builder-core:37")
+    annotationProcessor("io.soabase.record-builder:record-builder-processor:37")
 }
 
 spotbugs {
     ignoreFailures.set(false)
-//    excludeFilter.set(project.file("${project.projectDir}/configuration/spotbugs/spotbugs-filters.xml"))
+    excludeFilter.set(project.file("${project.projectDir}/config/spotbugs/spotbugs-filters.xml"))
 }
 
 val excludeFromCoverage = listOf(
         "it/unibz/digidojo/**/event/**",
         "it/unibz/digidojo/**/dto/**",
+        "it/unibz/digidojo/**/request/**",
 )
 
 val codeCoverageFiles: FileTree = sourceSets.main.get().output.asFileTree.matching {
@@ -70,9 +74,10 @@ tasks {
         useJUnitPlatform()
 
         testLogging {
-            events = setOf(TestLogEvent.FAILED,
-                    TestLogEvent.PASSED,
-                    TestLogEvent.SKIPPED)
+            events = setOf(
+                    TestLogEvent.FAILED,
+                    TestLogEvent.SKIPPED
+            )
             exceptionFormat = TestExceptionFormat.FULL
             showCauses = true
             showExceptions = true

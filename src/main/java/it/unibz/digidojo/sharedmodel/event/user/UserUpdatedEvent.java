@@ -6,10 +6,10 @@ import lombok.experimental.Accessors;
 
 @Getter
 @Accessors(fluent = true)
-public class UserCreatedEvent extends UserEvent {
-    private static final String USER_CREATED = "USER_CREATED";
+public class UserUpdatedEvent extends UserEvent {
+    private static final String USER_UPDATED = "USER_UPDATED";
 
-    public UserCreatedEvent(final UserDTO user) {
-        super(USER_CREATED, user);
+    public UserUpdatedEvent(final UserDTO user) {
+        super(USER_UPDATED, user);
     }
 }
